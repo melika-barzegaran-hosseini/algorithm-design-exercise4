@@ -71,11 +71,6 @@ public abstract class Problem
                 throw new Exception("error: the first line of the file '" + path + "' is null or empty.");
             }
 
-            if(print)
-            {
-                System.out.println("the rank of the input matrix is '" + rank + "'.");
-            }
-
             input = new Input(rank);
 
             for(int i = 0; i < rank; i++)

@@ -18,7 +18,7 @@ public class Input
     @Override
     public String toString()
     {
-        StringBuilder message = new StringBuilder();
+        StringBuilder message = new StringBuilder("the input:\n");
 
         for(Integer[] values : matrix)
         {
