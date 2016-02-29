@@ -160,5 +160,9 @@ public abstract class Problem
     public void solve()
     {
         read();
+
+        //it is assumed and forced that the source and the destination both have the value of '0'.
+        input.matrix[0][0] = 0;
+        input.matrix[input.matrix.length - 1][input.matrix.length - 1] = 0;
     }
 }

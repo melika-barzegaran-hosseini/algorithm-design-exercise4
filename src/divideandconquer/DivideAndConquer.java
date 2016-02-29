@@ -50,11 +50,7 @@ public class DivideAndConquer extends Problem
         //reaching the destination
         if(i == input.matrix.length - 1 && j == input.matrix.length - 1)
         {
-            //removing the value of the destination.
-            //it is assumed that the value of the source and the destination is zero.
-            //the value of the source is not added to the total value, but the value of the source does.
-            //if that is not zero, that value would be subtracted so that it would not be added to the total value.
-            return output.removeFromValue(input.matrix[i][j]);
+            return output;
         }
 
         //being in an obstacle
@@ -75,7 +71,7 @@ public class DivideAndConquer extends Problem
             return goToTheBottom(i, j, output);
         }
 
-        //decides which way is the best
+        //deciding which way is the best
         return Output.compare(goToTheRight(i, j, output), goToTheBottom(i, j, output));
     }
 

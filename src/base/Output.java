@@ -43,6 +43,12 @@ public class Output
         return this;
     }
 
+    public Output addToTheStartOfTheSequence(String step)
+    {
+        sequence = step.concat(sequence);
+        return this;
+    }
+
     public Integer getValue()
     {
         return value;
