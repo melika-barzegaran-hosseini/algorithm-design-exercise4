@@ -159,6 +159,11 @@ public abstract class Problem
 
     public void solve()
     {
+        if(print)
+        {
+            System.out.println("the input file is '" + path + "'.");
+        }
+
         read();
 
         //it is assumed and forced that the source and the destination both have the value of '0'.

@@ -23,11 +23,13 @@ public class Memoization extends Problem
     {
         if(print)
         {
+            System.out.println("================================================================================");
             System.out.println("MEMOIZATION:\n");
         }
 
         super.solve();
 
+        long start = System.currentTimeMillis();
         outputs = new Output[input.matrix.length][input.matrix.length];
         for(int i = 0; i < input.matrix.length; i++)
         {
@@ -37,8 +39,14 @@ public class Memoization extends Problem
             }
         }
         memoization(0, 0);
-
         output = outputs[0][0];
+        long end = System.currentTimeMillis();
+        long taken = end - start;
+
+        if(print)
+        {
+            System.out.println(String.format("%d milliseconds took to do the job.", taken));
+        }
 
         if(output.getValue() == Integer.MIN_VALUE)
         {
@@ -130,11 +138,14 @@ public class Memoization extends Problem
 
     public static void main(String args[])
     {
-        if(args.length == 1)
+        if(args.length != 1)
         {
-            Memoization memoization = new Memoization(args[0]);
-            memoization.enableDetailedPrinting();
-            memoization.solve();
+            for(String arg : args)
+            {
+                Memoization memoization = new Memoization(arg);
+                memoization.enableDetailedPrinting();
+                memoization.solve();
+            }
         }
         else
         {

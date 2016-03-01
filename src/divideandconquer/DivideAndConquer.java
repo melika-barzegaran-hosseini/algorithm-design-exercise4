@@ -20,12 +20,21 @@ public class DivideAndConquer extends Problem
     {
         if(print)
         {
+            System.out.println("================================================================================");
             System.out.println("DIVIDE AND CONQUER:\n");
         }
 
         super.solve();
 
+        long start = System.currentTimeMillis();
         Output output = divideAndConquer(0, 0, new Output());
+        long end = System.currentTimeMillis();
+        long taken = end - start;
+
+        if(print)
+        {
+            System.out.println(String.format("%d milliseconds took to do the job.", taken));
+        }
 
         if(output == null)
         {
@@ -87,11 +96,14 @@ public class DivideAndConquer extends Problem
 
     public static void main(String args[])
     {
-        if(args.length == 1)
+        if(args.length != 0)
         {
-            DivideAndConquer divideAndConquer = new DivideAndConquer(args[0]);
-            divideAndConquer.enableDetailedPrinting();
-            divideAndConquer.solve();
+            for(String arg : args)
+            {
+                DivideAndConquer divideAndConquer = new DivideAndConquer(arg);
+                divideAndConquer.enableDetailedPrinting();
+                divideAndConquer.solve();
+            }
         }
         else
         {

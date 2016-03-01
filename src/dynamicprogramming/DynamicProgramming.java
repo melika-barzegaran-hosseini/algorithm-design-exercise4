@@ -22,12 +22,21 @@ public class DynamicProgramming extends Problem
     {
         if(print)
         {
+            System.out.println("================================================================================");
             System.out.println("DYNAMIC PROGRAMMING:\n");
         }
 
         super.solve();
 
+        long start = System.currentTimeMillis();
         Output output = dynamicProgramming();
+        long end = System.currentTimeMillis();
+        long taken = end - start;
+
+        if(print)
+        {
+            System.out.println(String.format("%d milliseconds took to do the job.", taken));
+        }
 
         if(output == null)
         {
@@ -121,11 +130,14 @@ public class DynamicProgramming extends Problem
 
     public static void main(String args[])
     {
-        if(args.length == 1)
+        if(args.length != 1)
         {
-            DynamicProgramming dynamicProgramming = new DynamicProgramming(args[0]);
-            dynamicProgramming.enableDetailedPrinting();
-            dynamicProgramming.solve();
+            for(String arg : args)
+            {
+                DynamicProgramming dynamicProgramming = new DynamicProgramming(arg);
+                dynamicProgramming.enableDetailedPrinting();
+                dynamicProgramming.solve();
+            }
         }
         else
         {
