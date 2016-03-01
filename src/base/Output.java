@@ -10,10 +10,24 @@ public class Output
     private Integer value;
     private String sequence;
 
+    //added for memoization algorithm
+    private Boolean isSolved;
+
+    public Boolean isSolved()
+    {
+        return isSolved;
+    }
+
+    public void solve()
+    {
+        isSolved = true;
+    }
+
     public Output()
     {
         value = 0;
         sequence = "";
+        isSolved = false;
     }
 
     public Output clone()
@@ -28,12 +42,6 @@ public class Output
     public Output addToValue(Integer value)
     {
         this.value += value;
-        return this;
-    }
-
-    public Output removeFromValue(Integer value)
-    {
-        this.value -= value;
         return this;
     }
 
@@ -109,8 +117,8 @@ public class Output
             }
         }
 
-        System.err.println("error: bug detected!");
-        return null;
+        //reaches here if the sequences with equal values are both empty.
+        return a;
     }
 
     @Override

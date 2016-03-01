@@ -8,6 +8,7 @@ package base;
 public class Input
 {
     public static final Integer MAX_VALUE = Integer.MAX_VALUE;
+    public static final Integer MIN_VALUE = Integer.MIN_VALUE;
     public Integer[][] matrix;
 
     public Input(Integer rank)
